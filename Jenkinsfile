@@ -29,9 +29,17 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 script {
-                    sh 'docker run springboot-demo:latest'
+                    sh 'docker run -d springboot-demo:latest'
                 }
             }
+        }
+    }
+    post {
+        success {
+            echo 'Build and Deploy succeeded!'
+        }
+        failure {
+            echo 'Build or Deploy failed!'
         }
     }
 }
