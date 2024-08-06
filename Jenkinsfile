@@ -29,7 +29,7 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 script {
-                    sh 'docker run -d springboot-demo:latest'
+                    sh 'docker run -d -p 8080:8080 springboot-demo:latest'
                 }
             }
         }
